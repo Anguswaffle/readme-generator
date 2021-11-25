@@ -1,7 +1,7 @@
 const licenseLinkArr = ['https://www.gnu.org/licenses/agpl-3.0', 'https://www.gnu.org/licenses/gpl-3.0', 'https://www.gnu.org/licenses/lgpl-3.0', 'https://opensource.org/licenses/MPL-2.0', 'https://opensource.org/licenses/Apache-2.0', 'https://opensource.org/licenses/MIT', 'https://www.boost.org/LICENSE_1_0.txt', 'http://unlicense.org/']
 
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// Generates a license badge
+// Returns empty string if no license
 function renderLicenseBadge(license) {
   switch (license) {
     case 'GNU AGPL v3': return `[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](${licenseLinkArr[0]})`;
@@ -16,8 +16,8 @@ function renderLicenseBadge(license) {
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+// Generates link to license
+// Returns empty string if no license
 function renderLicenseLink(license) {
   switch (license) {
     case 'GNU AGPL v3': return `[${license}](${licenseLinkArr[0]})`;
@@ -32,8 +32,8 @@ function renderLicenseLink(license) {
   }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// Generates license section for markdown file
+// Returns empty string if no license
 function renderLicenseSection(license) {
   if (!license) return '';
 
@@ -42,7 +42,7 @@ function renderLicenseSection(license) {
   Licensed under ${renderLicenseLink(license)}.`
 }
 
-// TODO: Create a function to generate markdown for README
+// Generates markdown file text
 function generateMarkdown(data) {
   return `# ${data.title.toUpperCase()}
   ${renderLicenseBadge(data.license)}
