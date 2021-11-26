@@ -1,4 +1,4 @@
-// 
+// node.js imports
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js')
@@ -13,17 +13,17 @@ const questions = [
   {
     type: 'input',
     name: 'description',
-    message: 'Give a description of your project:'
+    message: 'Provide a short description explaining the what, why, and how of this project:'
   },
   {
     type: 'input',
     name: 'installation',
-    message: 'Instructions for installation:'
+    message: 'What are the steps required to install your project?'
   },
   {
     type: 'input',
     name: 'usage',
-    message: 'What is this project used for?'
+    message: 'Instructions and examples for use:'
   },
   {
     type: 'input',
@@ -63,7 +63,7 @@ const questions = [
 // Creates markdown file
 function writeToFile(fileName, data) {
   const markdownStr = generateMarkdown(data)
-  fs.writeFile(`./output/README-${fileName}.md`, markdownStr, (err) =>
+  fs.writeFile(`${fileName}.md`, markdownStr, (err) =>
     err ? console.log(err) : console.log(`Successfully created ${fileName}.md!`))
 }
 
